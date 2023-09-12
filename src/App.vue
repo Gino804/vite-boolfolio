@@ -1,29 +1,26 @@
 <script>
-import axios from 'axios';
-import ProjectCard from './components/ProjectCard.vue';
-const endpoint = 'http://127.0.0.1:8000/api/projects';
+import { RouterView } from 'vue-router';
 
-export default {
-  components: { ProjectCard },
-
-  data: () => ({ projects: [] }),
-
-  methods: {
-    fetchProjects() {
-      axios.get(endpoint).then(res => { this.projects = res.data })
-    }
-  },
-
-  created() {
-    this.fetchProjects();
-  }
-}
 </script>
 
 <template>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <RouterLink class="nav-link" :to="{ name: 'projects-list' }">Projects List</RouterLink>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div class="container">
-    <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
+    <RouterView />
   </div>
 </template>
-
-<style></style>
