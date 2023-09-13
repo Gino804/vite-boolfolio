@@ -16,6 +16,9 @@ import { RouterView } from 'vue-router';
           <li class="nav-item">
             <RouterLink class="nav-link" :to="{ name: 'projects-list' }">Projects List</RouterLink>
           </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" :to="{ name: 'contact' }">Contact</RouterLink>
+          </li>
         </ul>
       </div>
     </div>
